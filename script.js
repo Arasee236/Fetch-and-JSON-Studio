@@ -8,7 +8,7 @@ window.addEventListener("load", function(){
             console.log(json);
 
             const container = document.getElementById("container");
-            alert("Json length is " + json.length);
+           // alert("Json length is " + json.length);
             function sortByProperty(property){  
                 return function(a,b){  
                    if(a[property] < b[property])  
@@ -22,10 +22,12 @@ window.addEventListener("load", function(){
 
             json.sort(sortByProperty("hoursInSpace"));
 
-            
+            container.innerHTML += `<h3> Number of Astronauts : ${json.length}</h3>`
              for(let i=0; i < json.length;i++)
              {
                let status =json[i].active;
+
+               
               
                 if (status === true)
                 {
@@ -36,7 +38,7 @@ window.addEventListener("load", function(){
                  
                     <div class="bio">
                     <h3>${json[i].firstName} ${json[i].lastName}</h3>
-                    Astronaut is active              
+                                  
                     <ul>
                         <li>Hours in space: ${json[i].hoursInSpace}</li>
                             
@@ -55,9 +57,10 @@ window.addEventListener("load", function(){
                     container.innerHTML += `
                  <div class="astronaut">
                  
+                 
                     <div class="bio">
                     <h3>${json[i].firstName} ${json[i].lastName}</h3>
-                    Astronaut is not active
+                    
                     <ul>
                         <li>Hours in space: ${json[i].hoursInSpace}</li>
                                             
